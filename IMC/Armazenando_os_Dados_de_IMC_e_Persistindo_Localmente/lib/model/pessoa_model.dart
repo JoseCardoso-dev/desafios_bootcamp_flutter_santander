@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 
-class Pessoa {
+@HiveType(typeId: 0)
+class PessoaModel {
+  @HiveField(0)
   final String _id = UniqueKey().toString();
+  @HiveField(1)
   String _nome = "";
+  @HiveField(2)
   double _peso = 0;
+  @HiveField(3)
   double _altura = 0;
+  @HiveField(4)
   String _imc = "";
 
   String get id => _id;
@@ -13,7 +20,7 @@ class Pessoa {
   double get altura => _altura;
   String get imc => _imc;
 
-  Pessoa(this._nome, this._peso, this._altura, this._imc);
+  PessoaModel(this._nome, this._peso, this._altura, this._imc);
 
   set nome(String nome) {
     _nome = nome;

@@ -1,4 +1,4 @@
-import 'package:calculadora_imc_persistencia_de_dados/model/pessoa.dart';
+import 'package:calculadora_imc_persistencia_de_dados/model/pessoa_model.dart';
 import 'package:calculadora_imc_persistencia_de_dados/repositories/pessoa_diretory.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -11,12 +11,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late Pessoa pessoa;
+  late PessoaModel pessoa;
   var nomeCrontroller = TextEditingController();
   var pesoCrontroller = TextEditingController();
   var alturaCrontroller = TextEditingController();
   var pessoaRepository = PessoacDiretory();
-  var pessoas = <Pessoa>[];
+  var pessoas = <dynamic>[];
   double imc = 0;
   String imcTxt = "";
 
@@ -117,7 +117,7 @@ class _HomePageState extends State<HomePage> {
                                         imcTxt = "Obsidade Grau III (mórbida)";
                                       }
 
-                                      pessoa = Pessoa(
+                                      pessoa = PessoaModel(
                                           nomeCrontroller.text.trim(),
                                           double.parse(
                                               pesoCrontroller.text.trim()),
